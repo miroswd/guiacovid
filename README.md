@@ -1,4 +1,4 @@
-<h1>Guia List</h1>
+<h1>GuiaCovid</h1>
 
 <b>It is necessary to have nodejs installed</b>
 
