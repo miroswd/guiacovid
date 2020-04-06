@@ -1,0 +1,116 @@
+render() {
+    const tags = [1, 2, 3, 4, 5, 6];
+    const bolinhas = [1, 2, 3, 4, 5, 6];
+
+    console.log(this.state.loading);
+    const dadosQNaoEPraUsar = [
+      {
+        id: 1,
+        title: 'Site Corona Virus - Ministério da Saúde',
+        description:
+          'Site reunindo diversas informações importantes sobre a COVID-19 do Ministério da Saúde.',
+        image:
+          'https://covidlist.pythonanywhere.com/media/uploads/covid_saude_gov_br.png',
+        category: 1,
+        tags: [1, 3, 5],
+        urls: [
+          {
+            app: 'site',
+            url: 'http://coronavirus.saude.gov.br/',
+          },
+          {
+            app: 'instagram',
+            url: 'https://www.instagram.com/minsaude',
+          },
+          {
+            app: 'facebook',
+            url: 'https://www.facebook.com/minsaude',
+          },
+          {
+            app: 'twitter',
+            url: 'https://www.twitter.com/minsaude',
+          },
+        ],
+      },
+    ];
+
+    const dadosXexelentos = dadosQNaoEPraUsar.map((p) =>
+      p.urls.map((a) => a.app)
+    );
+
+    /*
+    const arr = [1, 2];
+
+    for (let i = 0; i < arr.length; i++) {
+      console.log(arr[i]);
+    }
+
+    arr.forEach((t) => console.log(t));
+    */
+
+    // const { id, title, description, image, category, urls } = this.state.data;
+    if (this.state.loading === true) {
+      return <h1>Carregando</h1>;
+    } else {
+      return (
+        <>
+          {/*01>{this.state.data.map((p) => p.id)}</h1> */}
+          <Header />
+          <Container>
+            <div className="app-info">
+              <a href={'/'} target="blank">
+                <div className="logo-app">
+                  <img src={this.state.data.image} alt="logo" />
+                </div>
+              </a>
+              <div className="line"></div>
+
+              <div className="group-right">
+                <div className="name">
+                  <h1>{this.state.data.title}</h1>
+                </div>
+
+                <div className="bolinhas">
+                  {bolinhas.map((ball) => (
+                    <a key={(i += 1)} href={'/'} target="blank">
+                      <img src={this.state.data.image} alt="bolinha" />
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <div className="content">
+              <div className="tags">
+                {tags.map((tag) => (
+                  <Link key={(i += 1)} to={'/'}>
+                    <img src={this.state.data.image} alt="app-logo" />
+                  </Link>
+                ))}
+              </div>
+              <div className="para">
+                <p>{this.state.data.description}</p>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
+                  purus elit, pretium ac enim accumsan, rhoncus condimentum
+                  nibh. Vestibulum vehicula tellus eu dapibus dignissim. Quisque
+                  convallis a erat sit amet bibendum. Donec placerat pretium
+                  luctus. Ut porta orci nec massa ultricies laoreet. Donec sed
+                  arcu tellus. Donec iaculis suscipit elit vitae convallis.
+                  Mauris est orci, tincidunt nec pharetra a, mollis eu tellus.
+                  Quisque non ultrices metus. Vivamus condimentum feugiat
+                  dictum. Vestibulum commodo enim vel eros porta sollicitudin.
+                  Mauris porta non nunc nec posuere. Nulla facilisi. Duis
+                  feugiat urna nisl, at accumsan nisi aliquet vitae. Donec
+                  efficitur tristique vehicula. Duis accumsan sem faucibus
+                  blandit viverra. Ut condimentum posuere cursus. Fusce a justo
+                  sit amet sem tristique convallis. Sed nec sagittis nisi. Cras
+                  non rutrum nibh, et posuere dolor. Nulla eu rutrum turpis.
+                </p>
+              </div>
+            </div>
+          </Container>
+
+          <Footer />
+        </>
+      );

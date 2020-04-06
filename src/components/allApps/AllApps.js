@@ -1,17 +1,48 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-import { Container } from './styles';
+import { Container, Card, Text } from './styles';
 
-import AppCard from './appCard/AppCard';
+import { Link } from 'react-router-dom';
 
-export default function AllApss() {
-  const data = [1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 4];
+import api from '../../services/api';
 
-  return (
-    <Container>
-      {data.map((app) => (
-        <AppCard />
-      ))}
-    </Container>
-  );
+export default class AllApps extends Component {
+  state = {
+    data: [],
+  };
+
+  componentDidMount() {
+    this.loadData();
+  }
+
+  loadData = async () => {
+    this.setState({ loading: true });
+    await api.get('/sources/').then((res) => {
+      this.setState({ data: res.data });
+    });
+  };
+
+  render() {
+    return (
+      <Container>
+        {this.state.data.map((app) => (
+          <Link
+            onClick={this.isLoading}
+            key={app.id}
+            to={`/App/${encodeURIComponent(app.title)}`}
+          >
+            <Card>
+              <div className="logo-app">
+                <img src={app.image} alt={app.title} />
+              </div>
+              <Text>
+                <span>{app.title}</span>
+                <p>{app.description}</p>
+              </Text>
+            </Card>
+          </Link>
+        ))}
+      </Container>
+    );
+  }
 }

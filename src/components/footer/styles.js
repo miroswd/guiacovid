@@ -1,20 +1,27 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-    width:100%;
+  footer {
+    margin-top: auto;
+    width: auto;
+    padding: 20px;
 
-    display:flex;
-    align-items:center;
-    justify-content:center;
+    background-color: #1563a2;
+    font-size: 14px;
+    line-height: 16px;
 
-    margin-top:50px;
+    text-align: center;
+  }
 
-    padding:40px;
-    background-color:#fff;
+  a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 1.2px;
 
-    span {
-        font-size:18px;
-        font-weight:bold;
+    &:hover {
+      color: #ddd;
     }
-
-    `;
+  }
+`;
