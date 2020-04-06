@@ -1,0 +1,17 @@
+{
+  "redes": [
+    {
+      "whatsapp": {
+        "has": true,
+        "number": "11944442222",
+        "image": "https://link.image",
+        "url": "https://wwww.link.com"
+      },
+      "facebook": {
+        "has": true,
+        "image": "https://link.image",
+        "url": "wwww.link.com"
+      }
+    }
+  ]
+}

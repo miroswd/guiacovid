@@ -7,17 +7,15 @@ export default function Featured() {
     <Container>
       <div className="back"></div>
       <Text>
-        <h1>
-          Título da postagem que será feita, na verdade aqui entrará um título
-          da página
-        </h1>
+        <h1>Os principais serviços sobre a Covid-19 </h1>
         <p>
-          Aqui será uma descrição, acho que vai ser o propósito da plataforma
+          O GuiaCovid reúne as principais plataformas e serviços para você se
+          atualizar da melhor maneira.
         </p>
       </Text>
 
       <img
-        src="https://cdn-istoe-ssl.akamaized.net/wp-content/uploads/sites/14/2020/02/coronavirus-418x235.jpg"
+        src="https://conteudo.imguol.com.br/c/noticias/ef/2019/11/08/andras-arato-ficou-conhecido-como-hide-pain-harold-por-causa-de-seu-sorriso-nervoso-1573231062755_v2_450x337.jpg"
         alt="Imagem-Destaque"
       />
     </Container>

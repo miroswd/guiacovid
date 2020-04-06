@@ -1,12 +1,29 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import { Container } from './styles';
 
-export default function Footer(){
+import api from '../../services/api';
+
+export default class Footer extends Component {
+  state = {
+    data: [],
+  };
+
+  componentDidMount() {
+    api.get('/sources/').then((res) => {
+      this.setState({ data: res.data });
+    });
+  }
+
+  render() {
     return (
-        <Container>
-        <span className="services">12 Serviços</span>
-    </Container>
+      <Container>
+        <footer>
+          <a href="/" className="services">
+            {this.state.data.length} Serviços
+          </a>
+        </footer>
+      </Container>
     );
-    
+  }
 }

@@ -9,12 +9,15 @@ export const Card = styled.div`
 
   /* background-color: #0ff; */
   .topic {
-    width: 150px;
+    width: 200px;
+    height: 200px;
     margin: 0 auto;
     /* margin-left: 30px; */
     padding: 15px;
 
-    display: grid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
 
     border-radius: 16px;
@@ -22,7 +25,10 @@ export const Card = styled.div`
 
     text-align: center;
 
-    box-shadow: 1px 5px 10px 2px rgba(0, 0, 0, 0.2);
+    box-shadow: 1px 5px 8px 2px rgba(0, 0, 0, 0.1);
+    &:hover {
+      box-shadow: 1px 5px 8px 4px rgba(0, 0, 0, 0.2);
+    }
   }
 
   img {
@@ -36,5 +42,14 @@ export const Card = styled.div`
   span {
     font-size: 16px;
     font-weight: bold;
+  }
+
+  a {
+    text-decoration: none;
+    color: #333;
+
+    &:hover {
+      color: #6ad800;
+    }
   }
 `;

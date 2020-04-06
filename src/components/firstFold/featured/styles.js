@@ -29,10 +29,14 @@ export const Text = styled.div`
   /* Title */
   h1 {
     font-size: 42px;
+    line-height: 42px;
   }
 
   /* Description */
   p {
     font-size: 24px;
+    font-weight: 400;
+    line-height: 30px;
+    margin-top: 24px;
   }
 `;

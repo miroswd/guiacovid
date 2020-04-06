@@ -1,14 +1,18 @@
 import React from 'react';
 import { render } from 'react-dom';
-import {BrowserRouter, Switch, Route} from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import Home from './components/Home';
-import Aplication from './components/Aplication';
+import Application from './components/application/Application';
+// import Person from './teste';
 
 render(
-<BrowserRouter>
+  <BrowserRouter>
     <Switch>
-        <Route path="/" exact={true} component={Home}/>
-        <Route path="/app" component={Aplication}/>
+      <Route path="/" exact={true} component={Home} />
+      <Route path="/app/:title" component={Application} />
+      {/* <Route path="/teste" component={Person} /> */}
     </Switch>
-</BrowserRouter>, document.querySelector('#root'));
+  </BrowserRouter>,
+  document.querySelector('#root')
+);
