@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
+import { ThreeHorseLoading } from 'react-loadingg';
 import { Container, Card, Text } from './styles';
 
 import Header from '../header/Header';
@@ -84,7 +85,7 @@ export default class FilteredApp extends Component {
               <div className="line"></div>
               <div className="group-right">
                 <div className="name">
-                  <h1>{this.state.tag.name}</h1>
+                  <h1>{this.state.tag.name.toUpperCase()}</h1>
                 </div>
               </div>
             </div>
@@ -120,15 +121,11 @@ export default class FilteredApp extends Component {
             </div>
             <div className="para"></div>
           </Container>
-          <Footer />;
+          <Footer />
         </>
       );
     } else {
-      return (
-        <div>
-          <h1>Carregando</h1>
-        </div>
-      );
+      return <ThreeHorseLoading styles={'color:red;'} />;
     }
   }
 }
