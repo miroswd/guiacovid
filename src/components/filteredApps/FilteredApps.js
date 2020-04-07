@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 import { ThreeHorseLoading } from 'react-loadingg';
 import { Container, Card, Text } from './styles';
@@ -9,26 +9,8 @@ import Footer from '../footer/Footer';
 
 import api from '../../services/api';
 
-import doacao from '../../assets/topics/doacao.svg';
-import estatisticas from '../../assets/topics/estatisticas.svg';
-import incentivo from '../../assets/topics/incentivo.svg';
-import noticias from '../../assets/topics/noticias.svg';
-import oficial from '../../assets/topics/oficial.svg';
-import perguntas from '../../assets/topics/perguntas.svg';
-import sintomas from '../../assets/topics/sintomas.svg';
-import teste from '../../assets/topics/teste.svg';
-import topicsData from '../../assets/topics/topics.json';
 
-const topics = [
-  doacao,
-  estatisticas,
-  incentivo,
-  noticias,
-  oficial,
-  perguntas,
-  teste,
-  sintomas,
-];
+import topicsData from '../../assets/topics/topics.json';
 
 export default class FilteredApp extends Component {
   state = {
@@ -38,6 +20,8 @@ export default class FilteredApp extends Component {
     tag: [],
     loading: false,
   };
+  
+  
 
   componentDidMount() {
     this.loadData();
@@ -46,7 +30,7 @@ export default class FilteredApp extends Component {
   loadData = async () => {
     this.setState({ loading: true });
     const { match } = this.props;
-    const id = decodeURIComponent(match.params.id);
+    const id = Number(decodeURIComponent(match.params.id));
     const response = await api.get('/sources/');
     const tagsApi = await api.get('/tags/');
     const apps = [];
@@ -54,14 +38,22 @@ export default class FilteredApp extends Component {
       data: response.data.map((a) => a),
       tags: tagsApi.data,
     });
-    this.setState({ tag: this.state.tags.find((a) => a.id === Number(id)) });
-    for (let i = 0; i < this.state.data.length; i++) {
-      if (this.state.data[i].tags.includes(Number(id))) {
-        apps.push(this.state.data[i]);
-        this.setState({ apps, loading: false });
+    this.setState({ tag:topicsData.data.find((a) => a.id === id) });
+    if (this.state.data.map(a => a.tags.includes(id))){
+      apps.push(this.state.data.map(a => a.tags.includes(id)))
+    } 
+let tagApps = []
+    for (let i = 0; i < this.state.data.length; i++){
+      if (apps[0][i] === true){
+        tagApps.push(this.state.data[i])
+        this.setState({tags:tagApps})
       }
     }
-  };
+    this.setState({ apps, loading: false });
+  
+  }
+    
+
 
   render() {
     if (this.state.loading === false && this.state.data.length !== 0) {
@@ -69,8 +61,11 @@ export default class FilteredApp extends Component {
 
       //   // console.log(this.state.data.urls[].app);
 
+
       {
-      }
+       console.log(this.state.tags)
+          }
+        
       return (
         <>
           <Header />
@@ -78,48 +73,30 @@ export default class FilteredApp extends Component {
             <div className="app-info">
               <div className="logo-app">
                 <img
-                  src={topics[this.state.tag.id - 1]}
+                  src={require(`../../assets/topics/${this.state.tag.title}.svg`)}
                   alt={this.state.tag.name}
                 />
               </div>
+            </div>
               <div className="line"></div>
               <div className="group-right">
                 <div className="name">
                   <h1>{this.state.tag.name.toUpperCase()}</h1>
                 </div>
               </div>
-            </div>
 
             <div className="content">
               <div className="tags">
-                {this.state.tags.map((tag) => (
-                  <Link key={tag} to={'/'}>
-                    <img src={topics[tag.id - 1]} alt="app-logo" />
+                {topicsData.data.map( a => (
+                  <Link key={a.title} to={`/apps/${a.id}`}>
+                    <img src={require(`../../assets/topics/${a.title}.svg`)} alt={a.name} />
+                    <span>{a.name}</span>
                   </Link>
                 ))}
               </div>
             </div>
 
-            <div className="para">
-              {this.state.apps.map((app) => (
-                <Link
-                  onClick={this.isLoading}
-                  key={app.id}
-                  to={`/App/${encodeURIComponent(app.title)}`}
-                >
-                  <Card>
-                    <div className="logo-app">
-                      <img src={app.image} alt={app.title} />
-                    </div>
-                    <Text>
-                      <span>{app.title}</span>
-                      <p>{app.description}</p>
-                    </Text>
-                  </Card>
-                </Link>
-              ))}
-            </div>
-            <div className="para"></div>
+           
           </Container>
           <Footer />
         </>
