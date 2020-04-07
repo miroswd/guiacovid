@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { ThreeHorseLoading } from 'react-loadingg';
 
 import { Container } from './styles';
 
@@ -94,7 +95,7 @@ export default class Application extends Component {
               <div className="tags">
                 {tags.map((tag) => (
                   <Link key={tag} to={'/'}>
-                    <img src={topics[tag]} alt="app-logo" />
+                    <img src={topics[tag - 1]} alt="app-logo" />
                   </Link>
                 ))}
               </div>
@@ -109,11 +110,7 @@ export default class Application extends Component {
         </>
       );
     } else {
-      return (
-        <div>
-          <h1>Carregando</h1>
-        </div>
-      );
+      return <ThreeHorseLoading />;
     }
   }
 }
