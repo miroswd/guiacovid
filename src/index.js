@@ -4,6 +4,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import Home from './components/Home';
 import Application from './components/application/Application';
+import FilteredApps from './components/filteredApps/FilteredApps';
 // import Person from './teste';
 
 render(
@@ -11,7 +12,7 @@ render(
     <Switch>
       <Route path="/" exact={true} component={Home} />
       <Route path="/app/:title" component={Application} />
-      {/* <Route path="/teste" component={Person} /> */}
+      <Route path="/apps/:id" component={FilteredApps} />
     </Switch>
   </BrowserRouter>,
   document.querySelector('#root')
