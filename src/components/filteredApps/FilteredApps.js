@@ -20,14 +20,14 @@ import teste from '../../assets/topics/teste.svg';
 import topicsData from '../../assets/topics/topics.json';
 
 const topics = [
-  oficial,
-  estatisticas,
-  teste,
-  perguntas,
-  sintomas,
-  noticias,
   doacao,
+  estatisticas,
   incentivo,
+  noticias,
+  oficial,
+  perguntas,
+  teste,
+  sintomas,
 ];
 
 export default class FilteredApp extends Component {
@@ -125,7 +125,7 @@ export default class FilteredApp extends Component {
         </>
       );
     } else {
-      return <ThreeHorseLoading styles={'color:red;'} />;
+      return <ThreeHorseLoading />;
     }
   }
 }
