@@ -10,7 +10,8 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: #1563a230;
+  border-radius: 4px;
 
   /* Image */
   img {

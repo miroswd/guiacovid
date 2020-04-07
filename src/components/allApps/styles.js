@@ -3,8 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.div`
   width: 1400px;
   margin: 0 auto;
-  margin-bottom: calc(10vh);
-
+  margin-bottom: 10vh;
   display: flex;
   flex-wrap: wrap;
 
@@ -20,7 +19,7 @@ export const Card = styled.div`
 
   border-radius: 8px;
   background-color: #fff;
-  box-shadow: 1px 5px 10px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 1px 5px 10px 2px rgba(0, 0, 0, 0.1);
 
   display: flex;
 

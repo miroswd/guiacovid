@@ -2,6 +2,8 @@ import React from 'react';
 
 import { Container, Text } from './styles';
 
+import BackgroundImage from '../../../assets/backgroundImage.svg';
+
 export default function Featured() {
   return (
     <Container>
@@ -14,10 +16,7 @@ export default function Featured() {
         </p>
       </Text>
 
-      <img
-        src="https://conteudo.imguol.com.br/c/noticias/ef/2019/11/08/andras-arato-ficou-conhecido-como-hide-pain-harold-por-causa-de-seu-sorriso-nervoso-1573231062755_v2_450x337.jpg"
-        alt="Imagem-Destaque"
-      />
+      <img src={BackgroundImage} alt="Imagem-Destaque" />
     </Container>
   );
 }

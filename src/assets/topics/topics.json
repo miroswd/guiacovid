@@ -3,42 +3,42 @@
     {
       "id": 1,
       "name": "Doação",
-      "image": "../../../assets/topics/doacao.svg"
+      "title": "doacao"
     },
     {
       "id": 2,
       "name": "Estatísticas",
-      "image": "../../../assets/topics/estatisticas.svg"
+      "title": "estatisticas"
     },
     {
       "id": 3,
       "name": "Incentivo",
-      "image": "../../../assets/topics/incentivo.svg"
+      "title": "incentivo"
     },
     {
       "id": 4,
       "name": "Notícias",
-      "image": "../../../assets/topics/noticias.svg"
+      "title": "noticias"
     },
     {
       "id": 5,
       "name": "Oficial",
-      "image": "../../../assets/topics/oficial.svg"
+      "title": "oficial"
     },
     {
       "id": 6,
       "name": "Perguntas e Respostas",
-      "image": "../../../assets/topics/perguntas-respostas.svg"
+      "title": "perguntas"
     },
     {
       "id": 7,
       "name": "Sintomas e Tratamentos",
-      "image": "../../../assets/topics/sintomas-tratamentos.svg"
+      "title": "sintomas"
     },
     {
       "id": 8,
       "name": "Teste e Triagem",
-      "image": "../../../assets/topics/teste-triagem.svg"
+      "title": "teste"
     }
   ]
 }
