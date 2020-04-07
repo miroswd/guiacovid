@@ -120,7 +120,7 @@ export default class FilteredApp extends Component {
             </div>
             <div className="para"></div>
           </Container>
-          <Footer />;
+          <Footer />
         </>
       );
     } else {
