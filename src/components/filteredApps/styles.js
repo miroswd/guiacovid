@@ -71,7 +71,7 @@ export const Container = styled.div`
 
     .logo-app {
       width: 300px;
-      height: 300px;
+      height: auto;
       background-color: #fff;
 
       display: grid;

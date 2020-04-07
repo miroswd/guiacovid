@@ -4,10 +4,6 @@ export const Container = styled.div`
   width: 1400px;
   height: 100vh;
   margin: 10vh auto;
-
-  .icon {
-  }
-
   .app-info {
     position: relative;
 
