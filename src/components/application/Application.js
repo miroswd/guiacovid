@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { ThreeHorseLoading } from 'react-loadingg';
 
+import { Link } from 'react-router-dom';
+
 import { Container } from './styles';
 
 import Header from '../header/Header';
@@ -49,9 +51,9 @@ export default class Application extends Component {
           <Container>
             <div className="app-info">
               <div className="logo-app">
-                <a href={this.state.data.urls[0].url} target="_blank">
+                <Link to={this.state.data.urls[0].url} target="_blank">
                   <img src={this.state.data.image} alt="logo" />
-                </a>
+                </Link>
               </div>
               <div className="line"></div>
 
@@ -62,12 +64,19 @@ export default class Application extends Component {
 
                 <div className="bolinhas">
                   {this.state.data.urls.map((a) => (
-                    <a key={a.app} href={a.url} target="_blank">
+                    <Link
+                      key={a.app}
+                      to={{
+                        pathname: `${a.url}`,
+                        state: { from: this.props.location },
+                      }}
+                      target="_blank"
+                    >
                       <img
                         src={require('../../assets/simbols/' + a.app + '.svg')}
                         alt={a.app}
                       />
-                    </a>
+                    </Link>
                   ))}
                 </div>
               </div>
@@ -76,12 +85,12 @@ export default class Application extends Component {
             <div className="content">
               <div className="tags">
                 {this.state.topics.map((tag) => (
-                  <a key={tag.id} href={`/apps/${tag.id}`}>
+                  <Link key={tag.id} to={`/topics/${tag.title}`}>
                     <img
                       src={require(`../../assets/topics/${tag.title}.svg`)}
                       alt={tag.name}
                     />
-                  </a>
+                  </Link>
                 ))}
               </div>
 

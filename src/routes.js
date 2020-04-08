@@ -1,6 +1,6 @@
 // Routes
 import React from 'react';
-import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import Home from './components/Home';
 import Application from './components/application/Application';
@@ -11,7 +11,7 @@ const Routes = () => (
     <Switch>
       <Route path="/" exact={true} component={Home} />
       <Route path="/app/:title" component={Application} />
-      <Route path="/apps/:id" component={FilteredApps} />
+      <Route path="/topics/:title" component={FilteredApps} />
     </Switch>
   </BrowserRouter>
 );

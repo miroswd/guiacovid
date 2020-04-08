@@ -1,5 +1,6 @@
 // Filteres Apps
 import React, { Component } from 'react';
+
 import { Link } from 'react-router-dom';
 
 import { ThreeHorseLoading } from 'react-loadingg';
@@ -27,8 +28,8 @@ export default class FilteredApp extends Component {
   loadData = async () => {
     this.setState({ loading: true });
     const { match } = this.props;
-    console.log(match);
-    const id = Number(decodeURIComponent(match.params.id));
+
+    const title = decodeURIComponent(match.params.title);
     const response = await api.get('/sources/');
     const tagsApi = await api.get('/tags/');
     const apps = [];
@@ -36,9 +37,14 @@ export default class FilteredApp extends Component {
       data: response.data.map((a) => a),
       tags: tagsApi.data,
     });
-    this.setState({ tag: topicsData.data.find((a) => a.id === id) });
-    if (this.state.data.map((a) => a.tags.includes(id))) {
-      apps.push(this.state.data.map((a) => a.tags.includes(id)));
+
+    this.setState({ tag: topicsData.data.find((a) => a.title === title) });
+    console.log(this.state.tag);
+    console.log(this.state.data.map((a) => a.tags));
+    console.log(this.state.data.map((a) => a.tags.includes(this.state.tag.id)));
+
+    if (this.state.data.map((a) => a.tags.includes(this.state.tag.id))) {
+      apps.push(this.state.data.map((a) => a.tags.includes(this.state.tag.id)));
     }
     let tagApps = [];
     for (let i = 0; i < this.state.data.length; i++) {
@@ -52,6 +58,7 @@ export default class FilteredApp extends Component {
   };
 
   removeVirgula = (desc) => {
+    console.log(desc);
     if (
       desc.substr(-1, 1) === ',' ||
       desc.substr(-1, 1) === '.' ||
@@ -65,7 +72,6 @@ export default class FilteredApp extends Component {
   render() {
     if (this.state.loading === false && this.state.data.length !== 0) {
       const { tags } = this.state;
-
       return (
         <>
           <Header />
@@ -82,18 +88,18 @@ export default class FilteredApp extends Component {
             </div>
 
             <div className="tags">
-              {topicsData.data.map((a) => (
-                <a key={a.title} href={`/apps/${a.id}`}>
+              {topicsData.data.map((topic) => (
+                <a key={topic.title} href={`/topics/${topic.title}`}>
                   <img
-                    src={require(`../../assets/topics/${a.title}.svg`)}
-                    alt={a.name}
+                    src={require(`../../assets/topics/${topic.title}.svg`)}
+                    alt={topic.name}
                   />
                 </a>
               ))}
 
               <div className="cards">
                 {tags.map((tag) => (
-                  <Link key={tag.id} to={`/App/${tag.title}`}>
+                  <Link key={tag.title} to={`/App/${tag.title}`}>
                     <Card>
                       <div className="logo-app">
                         <img src={tag.image} alt={tag.title} />

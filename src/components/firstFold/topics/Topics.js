@@ -10,7 +10,13 @@ export default class Topic extends Component {
     return (
       <Card>
         {topicsData.data.slice(0, 6).map((p) => (
-          <Link key={p.id} to={`/apps/${p.id}`}>
+          <Link
+            key={p.id}
+            to={{
+              pathname: `/topics/${p.title}`,
+              state: { from: this.props.location },
+            }}
+          >
             <div className="topic">
               <div className="logo-topic">
                 <img

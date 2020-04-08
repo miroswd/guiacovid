@@ -4,9 +4,9 @@ export const Container = styled.div`
   width: 1400px;
   margin: 0 auto;
   margin-bottom: 10vh;
-  display: flex;
-  flex-wrap: wrap;
-
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-content: space-around;
   justify-content: space-between;
 `;
 
@@ -16,6 +16,7 @@ export const Card = styled.div`
 
   margin-top: 57px;
   padding: 15px;
+  margin-right: 93px;
 
   border-radius: 8px;
   background-color: #fff;
