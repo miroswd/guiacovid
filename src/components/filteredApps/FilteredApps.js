@@ -1,3 +1,4 @@
+// Filteres Apps
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -26,6 +27,7 @@ export default class FilteredApp extends Component {
   loadData = async () => {
     this.setState({ loading: true });
     const { match } = this.props;
+    console.log(match);
     const id = Number(decodeURIComponent(match.params.id));
     const response = await api.get('/sources/');
     const tagsApi = await api.get('/tags/');
