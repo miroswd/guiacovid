@@ -9,6 +9,7 @@ import api from '../../services/api';
 export default class AllApps extends Component {
   state = {
     data: [],
+    loading: false,
   };
 
   componentDidMount() {
@@ -18,10 +19,20 @@ export default class AllApps extends Component {
   loadData = async () => {
     this.setState({ loading: true });
     await api.get('/sources/').then((res) => {
-      this.setState({ data: res.data });
+      this.setState({ data: res.data, loading: false });
     });
   };
 
+  removeVirgula = (desc) => {
+    if (
+      desc.substr(-1, 1) === ',' ||
+      desc.substr(-1, 1) === '.' ||
+      desc.substr(-1, 1) === ' '
+    ) {
+      return desc.slice(0, desc.indexOf(' ', 80));
+    }
+    return desc;
+  };
   render() {
     return (
       <Container>
@@ -37,7 +48,12 @@ export default class AllApps extends Component {
               </div>
               <Text>
                 <span>{app.title}</span>
-                <p>{app.description}</p>
+                <p>
+                  {this.removeVirgula(
+                    app.description.slice(0, app.description.indexOf(' ', 70))
+                  )}
+                  ...
+                </p>
               </Text>
             </Card>
           </Link>
