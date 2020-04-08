@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   footer {
-    margin-top: 200px;
+    margin-bottom: 0;
     width: auto;
     padding: 20px;
 
