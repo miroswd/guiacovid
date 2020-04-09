@@ -26,8 +26,12 @@ export default class FilteredApp extends Component {
     this.loadData();
   }
 
-  componentWillReceiveProps(props) {
-    this.props.history.go();
+  componentDidUpdate(prevProps) {
+    console.log('this', this.props);
+    console.log('prev', prevProps);
+    if (prevProps !== this.props) {
+      this.loadData();
+    }
   }
 
   loadData = async () => {
