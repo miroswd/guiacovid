@@ -23,16 +23,17 @@ export default class Featured extends Component {
     if (this.state.loading === false) {
       return (
         <Container>
-          <div className="back"></div>
-          <Text>
-            <h1>Os principais serviços sobre a Covid-19 </h1>
-            <p>
-              O GuiaCovid reúne as principais plataformas e serviços para você
-              se atualizar da melhor maneira.
-            </p>
-          </Text>
+          <div className="back">
+            <Text>
+              <h1>Os principais serviços sobre a Covid-19 </h1>
+              <p>
+                O GuiaCovid reúne as principais plataformas e serviços para você
+                se atualizar da melhor maneira.
+              </p>
+            </Text>
 
-          <img src={BackgroundImage} alt="Imagem-Destaque" />
+            <img src={BackgroundImage} alt="Imagem-Destaque" />
+          </div>
         </Container>
       );
     } else {
