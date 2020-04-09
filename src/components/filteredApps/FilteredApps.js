@@ -18,6 +18,7 @@ export default class FilteredApp extends Component {
     tags: [],
     apps: [],
     tag: [],
+    match: '',
     loading: false,
   };
 
@@ -25,10 +26,15 @@ export default class FilteredApp extends Component {
     this.loadData();
   }
 
+  componentWillReceiveProps(props) {
+    this.props.history.go();
+  }
+
   loadData = async () => {
     this.setState({ loading: true });
-    const { match } = this.props;
 
+    const { match } = this.props;
+    this.setState({ match: match.params.title });
     const title = decodeURIComponent(match.params.title);
     const response = await api.get('/sources/');
     const tagsApi = await api.get('/tags/');
@@ -39,9 +45,6 @@ export default class FilteredApp extends Component {
     });
 
     this.setState({ tag: topicsData.data.find((a) => a.title === title) });
-    console.log(this.state.tag);
-    console.log(this.state.data.map((a) => a.tags));
-    console.log(this.state.data.map((a) => a.tags.includes(this.state.tag.id)));
 
     if (this.state.data.map((a) => a.tags.includes(this.state.tag.id))) {
       apps.push(this.state.data.map((a) => a.tags.includes(this.state.tag.id)));
@@ -58,7 +61,6 @@ export default class FilteredApp extends Component {
   };
 
   removeVirgula = (desc) => {
-    console.log(desc);
     if (
       desc.substr(-1, 1) === ',' ||
       desc.substr(-1, 1) === '.' ||
@@ -89,12 +91,15 @@ export default class FilteredApp extends Component {
 
             <div className="tags">
               {topicsData.data.map((topic) => (
-                <a key={topic.title} href={`/topics/${topic.title}`}>
+                <Link
+                  key={topic.title}
+                  to={`/topics/${encodeURIComponent(topic.title)}`}
+                >
                   <img
                     src={require(`../../assets/topics/${topic.title}.svg`)}
                     alt={topic.name}
                   />
-                </a>
+                </Link>
               ))}
 
               <div className="cards">
