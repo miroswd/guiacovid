@@ -11,9 +11,11 @@ export default class Topic extends Component {
   render() {
     // Responsive number topics
     let slider = 6;
-    if (window.matchMedia('max-width:500px')) {
+
+    if (window.matchMedia('(max-width:500px)').matches) {
       slider = 1;
     }
+
     return (
       <Card>
         <Carousel
