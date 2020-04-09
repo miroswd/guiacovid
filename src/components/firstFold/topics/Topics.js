@@ -10,11 +10,14 @@ import topicsData from '../../../assets/topics/topics.json';
 export default class Topic extends Component {
   render() {
     // Responsive number topics
-
+    let slider = 6;
+    if (window.matchMedia('max-width:500px')) {
+      slider = 1;
+    }
     return (
       <Card>
         <Carousel
-          slidesPerPage={6}
+          slidesPerPage={slider}
           arrows
           infinite
           arrowLeft={

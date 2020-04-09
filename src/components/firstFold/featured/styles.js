@@ -152,6 +152,7 @@ export const Container = styled.div`
     100% {
       opacity: 0;
       left: 2vw;
+      width: 0px;
     }
   }
 
@@ -200,6 +201,17 @@ export const Text = styled.div`
       margin-top: 24px;
     }
   }
+
+  @media screen and (max-width: 500px) {
+    width: 220px;
+    h1 {
+      font-size: 30px;
+    }
+    p {
+      font-size: 22px;
+    }
+  }
+
   @media screen and (max-width: 280px) {
     width: 80px;
 
