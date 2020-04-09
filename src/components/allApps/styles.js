@@ -1,14 +1,20 @@
 import styled from 'styled-components';
 
+///////////// 100% ///////////////
+// ===== Container ====== //
+
 export const Container = styled.div`
   width: 1400px;
-  margin: 0 auto;
+  margin: 240px auto;
   margin-bottom: 10vh;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   align-content: space-around;
   justify-content: space-between;
+  min-height: 100%;
 `;
+
+// ======= Card ======= //
 
 export const Card = styled.div`
   width: 405px;
@@ -47,7 +53,7 @@ export const Card = styled.div`
   }
 `;
 
-// Text
+// ======== Text =========//
 
 export const Text = styled.div`
   width: 280px;
