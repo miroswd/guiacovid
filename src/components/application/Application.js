@@ -39,7 +39,6 @@ export default class Application extends Component {
     this.state.data.tags.map((a) => {
       return topicsApp.push(topicsData.data.find((tag) => tag.id === a));
     });
-    console.log(this.state.data);
     this.setState({ topics: topicsApp, loading: false });
   };
 
@@ -51,7 +50,10 @@ export default class Application extends Component {
           <Container>
             <div className="app-info">
               <div className="logo-app">
-                <Link to={this.state.data.urls[0].url} target="_blank">
+                <Link
+                  to={{ pathname: `${this.state.data.urls[0].url}` }}
+                  target="_blank"
+                >
                   <img src={this.state.data.image} alt="logo" />
                 </Link>
               </div>
