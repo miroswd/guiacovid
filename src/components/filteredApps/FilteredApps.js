@@ -26,15 +26,8 @@ export default class FilteredApp extends Component {
     this.loadData();
   }
 
-  componentDidUpdate(prevProps) {
-    console.log('this', this.props);
-    console.log('prev', prevProps);
-    if (prevProps !== this.props) {
-      this.loadData();
-    }
-  }
-
   loadData = async () => {
+    console.log(this.state.match);
     this.setState({ loading: true });
 
     const { match } = this.props;
@@ -47,8 +40,8 @@ export default class FilteredApp extends Component {
       data: response.data.map((a) => a),
       tags: tagsApi.data,
     });
-
     this.setState({ tag: topicsData.data.find((a) => a.title === title) });
+    console.log(this.state);
 
     if (this.state.data.map((a) => a.tags.includes(this.state.tag.id))) {
       apps.push(this.state.data.map((a) => a.tags.includes(this.state.tag.id)));
@@ -78,6 +71,7 @@ export default class FilteredApp extends Component {
   render() {
     if (this.state.loading === false && this.state.data.length !== 0) {
       const { tags } = this.state;
+
       return (
         <>
           <Header />
@@ -98,6 +92,7 @@ export default class FilteredApp extends Component {
                 <Link
                   key={topic.title}
                   to={`/topics/${encodeURIComponent(topic.title)}`}
+                  onClick={this.loadData}
                 >
                   <img
                     src={require(`../../assets/topics/${topic.title}.svg`)}
