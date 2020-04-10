@@ -6,12 +6,17 @@
   box-sizing: border-box;
 }
 
+html,
 body {
   background-color: #fff;
   font-family: 'Bitter', serif;
+  min-height: 100vh;
+}
+
+.container {
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  height: 100%;
 }
 
 p,

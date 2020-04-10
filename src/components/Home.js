@@ -8,10 +8,10 @@ import Footer from './footer/Footer';
 
 export default function Home() {
   return (
-    <>
+    <div className="container">
       <FirstFold />
       <AllApps />
       <Footer />
-    </>
+    </div>
   );
 }
