@@ -4,165 +4,102 @@ import styled from 'styled-components';
 ///// Container ////
 export const Container = styled.div`
   width: 100%;
-  padding-top: 40px;
+  padding: 20px 0;
 
   background-color: #1563a230;
   .back {
     width: 1400px;
     height: 550px;
-    margin: 60px auto;
-
+    margin: 0 auto;
+    padding: 40px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     border-radius: 4px;
-    position: relative;
   }
   /* Image */
   img {
-    position: absolute;
-    z-index: 0;
-    left: 655px;
-    bottom: 60px;
-
     width: 850px;
     height: 520px;
   }
 
   @media screen and (max-width: 1500px) {
     .back {
-      width: 1400px;
-      height: 550px;
-      margin: 60px auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-radius: 4px;
-      margin-left: 40px;
-      position: relative;
-    }
-
-    img {
-      position: absolute;
+      width: 1200px;
     }
   }
 
-  @media screen and (max-width: 1420px) {
-    .back {
-      width: 1000px;
-      height: 550px;
-      margin: 60px auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-radius: 4px;
-      margin-left: 40px;
-      position: relative;
-    }
-
-    img {
-      position: absolute;
-      animation: left-position 2s ease-in-out;
-      animation-fill-mode: both;
-    }
-  }
-
-  @media screen and (max-width: 1260px) {
+  @media screen and (max-width: 1300px) {
+    position: relative;
     .back {
       width: 800px;
-      height: 550px;
-      margin: 60px auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-radius: 4px;
-      margin-left: 40px;
-      position: relative;
     }
 
     img {
       position: absolute;
-      left: 40vw;
-      animation: center-position 2s ease-in-out;
+      right: 0;
+      animation: zero-four 3s;
       animation-fill-mode: forwards;
+      @keyframes zero-four {
+        0% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0.4;
+        }
+      }
     }
   }
-  @media screen and (max-width: 860px) {
+
+  @media screen and (max-width: 1300px) {
+    position: relative;
     .back {
-      width: auto;
-      height: 550px;
-      margin: 60px auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-radius: 4px;
-      margin-left: 40px;
-      position: relative;
+      width: 800px;
     }
 
     img {
       position: absolute;
-      left: 10vw;
-      animation: last-frame 1s ease-in-out;
+      right: 0;
+      animation: zero-four 3s;
       animation-fill-mode: forwards;
+      @keyframes zero-four {
+        0% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0.4;
+        }
+      }
     }
   }
-  @media screen and (max-width: 280px) {
+
+  @media screen and (max-width: 815px) {
     .back {
-      width: 200px;
-      height: 550px;
-      margin: 60px auto;
-      margin-left: 40px;
-      animation: remove-margin 1s ease-in;
-      animation-fill-mode: forwards;
+      padding: 0;
+      width: 600px;
     }
-  }
 
-  /* ANIMATION CONFIGURATION */
-  @keyframes hide-animation {
-    0% {
-      opacity: 100%;
-    }
-    100% {
+    img {
+      width: 0;
+      height: 0;
       opacity: 0;
+      visibility: hidden;
     }
   }
 
-  @keyframes left-position {
-    100% {
-      opacity: 0.4;
-      left: 40vw;
-    }
-  }
-
-  @keyframes center-position {
-    0% {
-      opacity: 0.4;
-    }
-    100% {
-      opacity: 0.2;
-      left: 10vw;
-    }
-  }
-  @keyframes last-frame {
-    0% {
-      opacity: 0.2;
+  @media screen and (max-width: 630px) {
+    .back {
+      padding: 0;
+      width: 300px;
     }
 
-    100% {
+    img {
+      width: 0;
+      height: 0;
       opacity: 0;
-      left: 2vw;
-      width: 0px;
+      visibility: hidden;
     }
   }
-
-  @keyframes remove-margin {
-    100% {
-      margin-top: 0;
-    }
-  }
-
-  /* END ANIMATION */
 `;
 
 ///// Text /////
@@ -184,59 +121,16 @@ export const Text = styled.div`
     line-height: 30px;
     margin-top: 24px;
   }
-  @media screen and (max-width: 1500px) {
-    width: 750px;
 
-    /* Title */
+  @media screen and (max-width: 600px) {
+    width: 320px;
     h1 {
-      font-size: 42px;
+      font-size: 36px;
       line-height: 42px;
     }
-
-    /* Description */
     p {
-      font-size: 24px;
-      font-weight: 400;
-      line-height: 30px;
-      margin-top: 24px;
-    }
-  }
-
-  @media screen and (max-width: 500px) {
-    width: 220px;
-    h1 {
-      font-size: 30px;
-    }
-    p {
-      font-size: 22px;
-    }
-  }
-
-  @media screen and (max-width: 280px) {
-    width: 80px;
-
-    h1 {
-      animation: h1-min 2s;
-      animation-fill-mode: forwards;
-    }
-
-    p {
-      animation: text-animation 2s;
-      animation-fill-mode: forwards;
-    }
-  }
-
-  @keyframes h1-min {
-    100% {
-      font-size: 15px;
-      line-height: 30px;
-    }
-  }
-
-  @keyframes text-animation {
-    100% {
-      font-size: 10px;
-      line-height: 20px;
+      font-size: 18px;
+      line-height: 28px;
     }
   }
 `;

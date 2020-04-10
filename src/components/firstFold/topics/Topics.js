@@ -12,7 +12,7 @@ export default class Topic extends Component {
     // Responsive number topics
     let slider = 6;
 
-    if (window.matchMedia('(max-width:500px)').matches) {
+    if (window.matchMedia('(max-width:1050px)').matches) {
       slider = 1;
     }
 
