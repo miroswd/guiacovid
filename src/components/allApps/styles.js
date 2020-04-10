@@ -5,34 +5,28 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   width: 1400px;
-  margin: 240px auto;
-  margin-bottom: 10vh;
+  margin: 0 auto;
+  margin-bottom: 60px;
+
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  align-content: space-around;
-  justify-content: space-between;
-  min-height: 100%;
 
-  @media screen and (max-width: 1500px) {
-    width: 1000px;
-    margin: 240px auto;
-
+  @media screen and (max-width: 1450px) {
+    width: 900px;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
   }
 
-  @media screen and (max-width: 960px) {
-    width: 400px;
+  @media screen and (max-width: 1000px) {
+    max-width: 405px;
     display: grid;
-    margin: 240px auto;
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(1, 1fr);
   }
 
-  @media screen and (max-width: 500px) {
-    width: 200px;
+  @media screen and (max-width: 430px) {
+    max-width: 300px;
     display: grid;
-    margin: 0 auto;
-    grid-template-columns: 100px;
+    grid-template-columns: repeat(1, 1fr);
   }
 `;
 
@@ -41,10 +35,10 @@ export const Container = styled.div`
 export const Card = styled.div`
   width: 405px;
   height: 200px;
+  margin: 0 auto;
 
   margin-top: 57px;
   padding: 15px;
-  margin-right: 93px;
 
   border-radius: 8px;
   background-color: #fff;
@@ -74,29 +68,17 @@ export const Card = styled.div`
     }
   }
 
-  @media screen and (max-width: 500px) {
-    width: 220px;
-    height: 260px;
+  @media screen and (max-width: 430px) {
+    max-width: 300px;
+    height: 300px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 
     .logo-app {
-      width: 80px;
-      height: 80px;
-      background-color: transparent;
-
-      border: 1px solid rgba(0, 0, 0, 0.1);
-      border-radius: 8px;
-
-      display: grid;
-      align-items: center;
-      justify-content: center;
-
-      img {
-        width: 100%;
-        height: auto;
-      }
+      width: 100px;
+      height: 100px;
     }
   }
 `;
@@ -121,19 +103,16 @@ export const Text = styled.div`
     overflow: hidden;
   }
 
-  @media screen and (max-width: 500px) {
-    width: 100%;
-
-    margin-top: 25px;
-
+  @media screen and (max-width: 430px) {
+    width: 200px;
+    margin-top: 20px;
     span {
-      font-size: 18px;
+      font-size: 20px;
     }
-
     p {
+      margin-top: 20px;
       font-size: 14px;
-      line-height: 20px;
-      margin-top: 10px;
+      line-height: 18px;
     }
   }
 `;
