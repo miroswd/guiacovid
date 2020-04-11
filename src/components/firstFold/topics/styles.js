@@ -25,6 +25,7 @@ export const Card = styled.div`
 
   @media screen and (max-width: 1050px) {
     width: 300px;
+    margin-top: 20px;
   }
 
   @media screen and (max-width: 630px) {
@@ -138,6 +139,7 @@ export const Item = styled.div`
   @media screen and (max-width: 1050px) {
     display: flex;
     flex-direction: column;
+
     .topic {
       width: 140px;
       height: 140px;

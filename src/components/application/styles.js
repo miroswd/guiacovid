@@ -2,106 +2,177 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   width: 1400px;
-  height: 100vh;
-  margin: 10vh auto;
-  .app-info {
-    position: relative;
+  height: auto;
+  margin: 120px auto;
 
-    .logo-app {
-      width: 300px;
-      height: 300px;
-      background-color: #fff;
+  position: relative;
 
-      display: grid;
-      align-items: center;
-      justify-content: center;
+  h1 {
+    position: absolute;
 
-      padding: 5px;
+    font-size: 45px;
+    top: 170px;
+    left: 360px;
+  }
 
-      border: 2px solid rgba(0, 0, 0, 0.2);
-      border-radius: 8px;
+  .line {
+    position: absolute;
+    top: 235px;
+    left: 300px;
 
-      img {
-        width: 100%;
-        height: auto;
+    width: calc(100% - 300px);
+    height: 4px;
+    background-color: #000;
+  }
+
+  @media screen and (min-width: 1400px) {
+    p {
+      width: calc(100% - 360px);
+      position: absolute;
+
+      top: 340px;
+      left: 360px;
+
+      font-size: 24px;
+    }
+  }
+
+  @media screen and (max-width: 1450px) {
+    width: 800px;
+
+    h1 {
+      position: absolute;
+      width: calc(100%- 360px);
+
+      font-size: 40px;
+
+      top: 120px;
+      left: 360px;
+    }
+
+    .line {
+      position: absolute;
+      top: 235px;
+      left: 300px;
+
+      width: calc(100% - 300px);
+      height: 4px;
+      background-color: #000;
+    }
+
+    @media screen and (min-width: 901px) {
+      p {
+        width: calc(100% - 360px);
+        position: absolute;
+        text-align: justify;
+        top: 340px;
+        left: 360px;
+
+        font-size: 20px;
       }
     }
   }
 
-  .group-right {
-    position: absolute;
-    bottom: 0;
-    left: 360px;
-  }
-
-  h1 {
-    width: 800px;
-    font-size: 45px;
-
-    position: absolute;
-    bottom: 80px;
-  }
-
-  .line {
-    width: calc(1400px - 300px);
-
-    position: absolute;
-
-    right: 0;
-    bottom: 70px;
-    border-bottom: 2px solid #000;
-  }
-
-  .bolinhas {
-    display: flex;
-    flex-direction: row;
-
-    img {
-      width: 50px;
-      height: auto;
-      margin-right: 20px;
-    }
-  }
-
-  /* Content */
-
-  .content {
-    margin-top: 50px;
-
-    position: relative;
-  }
-
-  .tags {
+  @media screen and (max-width: 900px) {
     width: 300px;
 
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    border-radius: 10px;
+    h1 {
+      position: absolute;
+      width: 300px;
 
-    img {
-      width: 80px;
-      height: 80px;
-      background-color: #fff;
-      padding: 10px;
-      border: 2px solid rgba(0, 0, 0, 0.2);
-      border-radius: 10px;
+      font-size: 28px;
+      text-align: center;
+      top: 320px;
+      left: 0;
     }
-  }
 
-  .para {
-    width: calc(1400px - 360px);
-    height: auto;
-
-    position: absolute;
-
-    top: 0;
-    right: 0;
+    .line {
+      width: 0;
+    }
 
     p {
-      font-size: 22px;
-      margin-bottom: 20px;
-      text-decoration: none;
+      width: 280px;
+
+      /* margin-bottom: 20px; */
+      margin-left: 10px;
+      font-size: 18px;
     }
+  }
+`;
+
+export const Logo = styled.div`
+  width: 300px;
+  height: 300px;
+  padding: 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 8px;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+
+  img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+  }
+`;
+
+export const Social = styled.div`
+  position: absolute;
+
+  width: 600px;
+  height: 50px;
+
+  top: 250px;
+  left: 360px;
+
+  img {
+    width: 50px;
+    margin-right: 20px;
+  }
+
+  @media screen and (max-width: 900px) {
+    width: 300px;
+    top: -80px;
+    left: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      width: 35px;
+      margin-right: 15px;
+    }
+  }
+`;
+
+export const Tags = styled.div`
+  width: 300px;
+  height: auto;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 30px;
+  margin-top: 40px;
+
+  img {
+    width: 80px;
+    height: 80px;
+
+    padding: 10px;
+    border-radius: 8px;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+
+    background-color: #fff;
+  }
+
+  @media screen and (max-width: 900px) {
+    width: 300px;
+    margin-top: 130px;
+    margin-bottom: 40px;
   }
 `;
