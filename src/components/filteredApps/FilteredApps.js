@@ -4,9 +4,10 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 import { ThreeHorseLoading } from 'react-loadingg';
-import { Container, Card, Text } from './styles';
+import { Container, Card, Text, Logo, Tags } from './styles';
 
 import Header from '../header/Header';
+import Footer from '../footer/Footer';
 
 import api from '../../services/api';
 
@@ -77,21 +78,22 @@ export default class FilteredApp extends Component {
     if (this.state.loading === false && this.state.data.length !== 0) {
       const { tags } = this.state;
       return (
-        <>
+        <div className="container">
           <Header />
+
           <Container>
-            <div className="app-info">
+            <Logo>
               <img
                 className="logo-app"
                 src={require(`../../assets/topics/${this.state.tag.title}.svg`)}
                 alt={this.state.tag.title}
               />
+            </Logo>
 
-              <div className="line"></div>
-              <h1>{this.state.tag.name.toUpperCase()}</h1>
-            </div>
+            <div className="line"></div>
+            <h1>{this.state.tag.name.toUpperCase()}</h1>
 
-            <div className="tags">
+            <Tags>
               {topicsData.data.map((topic) => (
                 <Link
                   key={topic.title}
@@ -103,33 +105,34 @@ export default class FilteredApp extends Component {
                   />
                 </Link>
               ))}
+            </Tags>
 
-              <div className="cards">
-                {tags.map((tag) => (
-                  <Link key={tag.title} to={`/App/${tag.title}`}>
-                    <Card>
-                      <div className="logo-app">
-                        <img src={tag.image} alt={tag.title} />
-                      </div>
-                      <Text>
-                        <span>{tag.title}</span>
-                        <p>
-                          {this.removeVirgula(
-                            tag.description.slice(
-                              0,
-                              tag.description.indexOf(' ', 70)
-                            )
-                          )}
-                          ...
-                        </p>
-                      </Text>
-                    </Card>
-                  </Link>
-                ))}
-              </div>
+            <div className="cards">
+              {tags.map((tag) => (
+                <Link key={tag.title} to={`/App/${tag.title}`}>
+                  <Card>
+                    <div className="logo-app">
+                      <img src={tag.image} alt={tag.title} />
+                    </div>
+                    <Text>
+                      <span>{tag.title}</span>
+                      <p>
+                        {this.removeVirgula(
+                          tag.description.slice(
+                            0,
+                            tag.description.indexOf(' ', 70)
+                          )
+                        )}
+                        ...
+                      </p>
+                    </Text>
+                  </Card>
+                </Link>
+              ))}
             </div>
           </Container>
-        </>
+          <Footer />
+        </div>
       );
     } else {
       return <ThreeHorseLoading />;
