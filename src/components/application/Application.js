@@ -3,7 +3,7 @@ import { ThreeHorseLoading } from 'react-loadingg';
 
 import { Link } from 'react-router-dom';
 
-import { Container } from './styles';
+import { Container, Logo, Tags, Social } from './styles';
 
 import Header from '../header/Header';
 import Footer from '../footer/Footer';
@@ -45,65 +45,55 @@ export default class Application extends Component {
   render() {
     if (this.state.loading === false && this.state.data.length !== 0) {
       return (
-        <>
+        <div className="container">
           <Header />
+
           <Container>
-            <div className="app-info">
-              <div className="logo-app">
+            <Link
+              to={{ pathname: `${this.state.data.urls[0].url}` }}
+              target="_blank"
+            >
+              <Logo>
+                <img src={this.state.data.image} alt="logo" />
+              </Logo>
+            </Link>
+
+            <div className="line"></div>
+
+            <h1>{this.state.data.title}</h1>
+
+            <Social>
+              {this.state.data.urls.map((a) => (
                 <Link
-                  to={{ pathname: `${this.state.data.urls[0].url}` }}
+                  key={a.app}
+                  to={{
+                    pathname: `${a.url}`,
+                    state: { from: this.props.location },
+                  }}
                   target="_blank"
                 >
-                  <img src={this.state.data.image} alt="logo" />
+                  <img
+                    src={require('../../assets/simbols/' + a.app + '.svg')}
+                    alt={a.app}
+                  />
                 </Link>
-              </div>
-              <div className="line"></div>
+              ))}
+            </Social>
+            <Tags>
+              {this.state.topics.map((tag) => (
+                <Link key={tag.id} to={`/topics/${tag.title}`}>
+                  <img
+                    src={require(`../../assets/topics/${tag.title}.svg`)}
+                    alt={tag.name}
+                  />
+                </Link>
+              ))}
+            </Tags>
 
-              <div className="group-right">
-                <div className="name">
-                  <h1>{this.state.data.title}</h1>
-                </div>
-
-                <div className="bolinhas">
-                  {this.state.data.urls.map((a) => (
-                    <Link
-                      key={a.app}
-                      to={{
-                        pathname: `${a.url}`,
-                        state: { from: this.props.location },
-                      }}
-                      target="_blank"
-                    >
-                      <img
-                        src={require('../../assets/simbols/' + a.app + '.svg')}
-                        alt={a.app}
-                      />
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            <div className="content">
-              <div className="tags">
-                {this.state.topics.map((tag) => (
-                  <Link key={tag.id} to={`/topics/${tag.title}`}>
-                    <img
-                      src={require(`../../assets/topics/${tag.title}.svg`)}
-                      alt={tag.name}
-                    />
-                  </Link>
-                ))}
-              </div>
-
-              <div className="para">
-                <p>{this.state.data.description}</p>
-              </div>
-            </div>
+            <p>{this.state.data.description}</p>
           </Container>
-
           <Footer />
-        </>
+        </div>
       );
     } else {
       return <ThreeHorseLoading />;
