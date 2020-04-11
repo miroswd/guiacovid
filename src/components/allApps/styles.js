@@ -98,8 +98,9 @@ export const Text = styled.div`
   }
 
   p {
+    margin-top: 20px;
     font-size: 16px;
-    line-height: 26px;
+    line-height: 22px;
     color: #333;
     max-height: 100px;
     overflow: hidden;
