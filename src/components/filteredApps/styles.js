@@ -11,7 +11,7 @@ export const Container = styled.div`
     position: absolute;
 
     font-size: 45px;
-    top: 170px;
+    top: 140px;
     left: 360px;
   }
 
@@ -59,9 +59,15 @@ export const Container = styled.div`
     h1 {
       position: absolute;
       width: calc(100%- 360px);
+      height: 200px;
+
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
 
       font-size: 40px;
-      top: 170px;
+      top: 70px;
       left: 378px;
     }
 
@@ -83,14 +89,18 @@ export const Container = styled.div`
 
   @media screen and (max-width: 900px) {
     width: 300px;
-
     h1 {
       position: absolute;
       width: 300px;
+      height: 100px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
       font-size: 32px;
       text-align: center;
-      top: 340px;
+      top: 320px;
       left: 0;
     }
 
@@ -116,6 +126,7 @@ export const Logo = styled.div`
   img {
     width: 100%;
     height: auto;
+    padding: 20px;
     border-radius: 4px;
   }
 `;
@@ -144,6 +155,16 @@ export const Tags = styled.div`
     width: 300px;
     margin-top: 130px;
     margin-bottom: 40px;
+
+    h1 {
+      position: absolute;
+      width: 300px;
+
+      font-size: 28px;
+      text-align: center;
+      top: 320px;
+      left: 0;
+    }
   }
 `;
 
