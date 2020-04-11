@@ -120,6 +120,7 @@ export const Text = styled.div`
     font-weight: 400;
     line-height: 30px;
     margin-top: 24px;
+    margin-bottom: 20px;
   }
 
   @media screen and (max-width: 600px) {
